@@ -50,3 +50,8 @@ table{
 h2{
     margin-top: 50px;
 }
+
+.pointer{
+    background-color: #578f57;
+    color: #98fb98;
+}

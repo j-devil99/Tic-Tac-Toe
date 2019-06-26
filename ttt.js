@@ -22,6 +22,8 @@ var p2 = prompt("Enter Player 2 Name: ");
 document.getElementById("playerOne").innerHTML = p1;
 document.getElementById("playerTwo").innerHTML = p2;
 
+document.getElementById("pointerOne").classList.add("pointer");
+
 var intervalVar = setInterval(checker, 1000);              
 
 function checker(){                                         //function run constantly to check winner, improved result display timing
@@ -67,6 +69,8 @@ function draw(cnv){
 
     if(turn){
         // playertwo
+        document.getElementById("pointerOne").classList.add("pointer");
+        document.getElementById("pointerTwo").classList.remove("pointer");        
         s.moveTo(25,25);
         s.lineWidth = 5;
         s.strokeStyle = "#98fb98";
@@ -80,6 +84,8 @@ function draw(cnv){
     }
     else {
         // playerone
+        document.getElementById("pointerTwo").classList.add("pointer");
+        document.getElementById("pointerOne").classList.remove("pointer");
         s.lineWidth = 5;
         s.strokeStyle = "#98fb98";
         s.arc(75,75,50,0,360);
