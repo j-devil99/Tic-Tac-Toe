@@ -7,14 +7,18 @@
     <title>Tic-Tac-Toe</title>
 
     <link rel="stylesheet" href="ttt.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <h1 align="center">Tic-Tac-Toe</h1>
+    <div id="header">
+        <h1 align="center" style="font-size: 40px;">Tic - Tac - Toe</h1>
+    </div>
 
-    <div style="float: left; width: 34.5%;">
-        <h3>Player 1 (O): <span id="playerOne"></span></h3>
-        <h3>Player 2 (X): <span id="playerTwo"></span></h3>
+    <div id="nameDisplay">
+        <h1>Players: </h1>
+        <h2>Player 1 (O): <span id="playerOne"></span></h2>
+        <h2>Player 2 (X): <span id="playerTwo"></span></h2>
     </div>
 
     <table align="center" style="float: left">
@@ -52,6 +56,10 @@
             </td>
         </tr>
     </table>
+    <div id="winnerDisplay">
+        <h1>Winner is: </h1>
+        <p id="winnerText"></p>
+    </div>
 
     <script src="ttt.js"></script>
 

@@ -26,17 +26,20 @@ var intervalVar = setInterval(checker, 1000);
 
 function checker(){                                         //function run constantly to check winner, improved result display timing
     if(checkWinner(playerOneMoves)){
-        alert("Player One Wins");
+        // alert("Player One Wins");
+        document.getElementById('winnerText').innerHTML = p1;          
         clearInterval(intervalVar);
         return true;
     }
     if(checkWinner(playerTwoMoves)){
-        alert("Player Two Wins");  
+        // alert("Player Two Wins");
+        document.getElementById('winnerText').innerHTML = p2;  
         clearInterval(intervalVar);      
         return true;
     }
     else if(playerMoves.length == 9){
-        alert("It's a Draw!");
+        // alert("It's a Draw!");
+        document.getElementById('winnerText').innerHTML = "It's a Draw";  
         clearInterval(intervalVar);
         return true;
     }
@@ -65,6 +68,8 @@ function draw(cnv){
     if(turn){
         // playertwo
         s.moveTo(25,25);
+        s.lineWidth = 5;
+        s.strokeStyle = "#98fb98";
         s.lineTo(125,125);
         s.stroke();
         s.moveTo(125,25);
@@ -75,6 +80,8 @@ function draw(cnv){
     }
     else {
         // playerone
+        s.lineWidth = 5;
+        s.strokeStyle = "#98fb98";
         s.arc(75,75,50,0,360);
         s.stroke();
         playerOneMoves.push(id);
