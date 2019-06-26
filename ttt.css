@@ -1,3 +1,9 @@
 canvas{
     background-color: red; 
+    border-radius: 30%;
+}
+
+table{
+    border-collapse: separate;
+    border-spacing: 5px 0;
 }

@@ -27,10 +27,17 @@ var intervalVar = setInterval(checker, 1000);
 function checker(){                                         //function run constantly to check winner, improved result display timing
     if(checkWinner(playerOneMoves)){
         alert("Player One Wins");
+        clearInterval(intervalVar);
         return true;
     }
     if(checkWinner(playerTwoMoves)){
-        alert("Player Two Wins");        
+        alert("Player Two Wins");  
+        clearInterval(intervalVar);      
+        return true;
+    }
+    else if(playerMoves.length == 9){
+        alert("It's a Draw!");
+        clearInterval(intervalVar);
         return true;
     }
 }
@@ -52,6 +59,7 @@ function draw(cnv){
         }
     }
     
+
     turn = !turn;
 
     if(turn){
@@ -86,7 +94,6 @@ function checkWinner(array){
             }         
             if(ctr === 3){
                 // alert("Winner Winner Chicken Dinner!");
-                clearInterval(intervalVar);
                 return true;
             }
         }        
