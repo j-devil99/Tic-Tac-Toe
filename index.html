@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tic-Tac-Toe</title>
+
+    <link rel="stylesheet" href="ttt.css">
+</head>
+<body>
+    <table style="float: left">
+        <tr>
+            <td>
+                    <canvas id="b1" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+            <td>
+                    <canvas id="b2" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+            <td>
+                    <canvas id="b3" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <canvas id="b4" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+            <td>
+                    <canvas id="b5" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+            <td>
+                    <canvas id="b6" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <canvas id="b7" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+            <td>
+                    <canvas id="b8" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+            <td>
+                    <canvas id="b9" onclick="draw(this)" height="200px" width="200px"></canvas>
+            </td>
+        </tr>
+    </table>
+    <div style="float: left">
+        <h3>Player 1 (O): <span id="playerOne"></span></h3>
+        <h3>Player 2 (X): <span id="playerTwo"></span></h3>
+    </div>
+
+    <script src="ttt.js"></script>
+
+</body>
+</html>
