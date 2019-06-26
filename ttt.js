@@ -56,18 +56,18 @@ function draw(cnv){
 
     if(turn){
         // playertwo
-        s.moveTo(0,0);
-        s.lineTo(200,200);
+        s.moveTo(25,25);
+        s.lineTo(125,125);
         s.stroke();
-        s.moveTo(200,0);
-        s.lineTo(0,200);
+        s.moveTo(125,25);
+        s.lineTo(25,125);
         s.stroke();
         playerTwoMoves.push(id);
         playerMoves.push(id);
     }
     else {
         // playerone
-        s.arc(100,100,100,0,360);
+        s.arc(75,75,50,0,360);
         s.stroke();
         playerOneMoves.push(id);
         playerMoves.push(id);
