@@ -9,6 +9,8 @@ var playNow = false;
 var p1;
 var p2;
 var intervalVar;
+var p1score = 0;
+var p2score = 0;
 
 
 var solution = [                //winning situations
@@ -22,7 +24,40 @@ var solution = [                //winning situations
     ['b3','b5','b7']
 ];
 
-function getNames(){
+function clearCanvas(){
+
+    var canvas = document.getElementsByClassName('box');
+    Array.prototype.forEach.call(canvas, element=>{
+        const context = element.getContext('2d');
+        context.clearRect(0, 0, element.width, element.height);    
+        element.classList.remove("winCanvas");
+    }); 
+
+    document.getElementById('winnerText').innerHTML = "";
+}
+
+function initialConditions(){
+    document.getElementById("playNowButton").style.visibility = "hidden";
+    document.getElementById("rematchButton").style.visibility = "hidden";
+
+    winningMove = []
+    playerOneMoves = [];
+    playerTwoMoves = [];
+    playerMoves = [];
+    turn = true;
+
+    playNow = true;
+    intervalVar = setInterval(checker, 1000);
+}
+
+function restart(){
+    clearCanvas();
+    initialConditions()
+    dontDisplayScore()
+
+    p1score = 0;
+    p2score = 0;
+    
     p1 = prompt("Enter Player 1 Name: ");
     p2 = prompt("Enter Player 2 Name: ");
 
@@ -30,15 +65,26 @@ function getNames(){
     document.getElementById("playerTwo").innerHTML = p2;
 
     document.getElementById("pointerOne").classList.add("pointer");
-    
-    playNow = true;
-    intervalVar = setInterval(checker, 1000);
-    // document.getElementById("playNowButton").disabled = true;
-    document.getElementById("playNowButton").style.visibility = "hidden";
+    document.getElementById("pointerTwo").classList.remove("pointer");    
 }
 
+function rematch(){
+    clearCanvas();
+    initialConditions()
+    displayScore();
+    
+}
 
-              
+function displayScore(){
+    document.getElementById('playerOneScore').innerHTML = ' -> ( ' + p1score + ' ) ';
+    document.getElementById('playerTwoScore').innerHTML = ' -> ( ' + p2score + ' ) ';
+}
+
+function dontDisplayScore(){
+    document.getElementById('playerOneScore').innerHTML = '';
+    document.getElementById('playerTwoScore').innerHTML = '';
+}
+
 
 function checker(){                                         //function run constantly to check winner, improved result display timing
     if(checkWinner(playerOneMoves)){
@@ -48,6 +94,8 @@ function checker(){                                         //function run const
         });
         document.getElementById('winnerText').innerHTML = p1;          
         clearInterval(intervalVar);
+        p1score++
+        gameOver();
         return true;
     }
     if(checkWinner(playerTwoMoves)){
@@ -57,12 +105,15 @@ function checker(){                                         //function run const
         });
         document.getElementById('winnerText').innerHTML = p2;  
         clearInterval(intervalVar);      
+        p2score++        
+        gameOver();
         return true;
     }
     else if(playerMoves.length == 9){
         // alert("It's a Draw!");
         document.getElementById('winnerText').innerHTML = "It's a Draw";  
         clearInterval(intervalVar);
+        gameOver();
         return true;
     }
 }
@@ -95,6 +146,7 @@ function draw(cnv){
         // playertwo
         document.getElementById("pointerOne").classList.add("pointer");
         document.getElementById("pointerTwo").classList.remove("pointer");        
+        s.beginPath();
         s.moveTo(25,25);
         s.lineWidth = 5;
         s.strokeStyle = "#98fb98";
@@ -110,6 +162,7 @@ function draw(cnv){
         // playerone
         document.getElementById("pointerTwo").classList.add("pointer");
         document.getElementById("pointerOne").classList.remove("pointer");
+        s.beginPath();        
         s.lineWidth = 5;
         s.strokeStyle = "#98fb98";
         s.arc(75,75,50,0,360);
@@ -136,4 +189,10 @@ function checkWinner(array){
             }
         }        
     }
+}
+
+function gameOver(){
+    document.getElementById("playNowButton").innerHTML = 'Restart';
+    document.getElementById("playNowButton").style.visibility = 'visible';
+    document.getElementById("rematchButton").style.visibility = 'visible';
 }

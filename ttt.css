@@ -25,7 +25,7 @@ table{
 }
 
 #nameDisplay{
-    padding-top: 60px;
+    padding-top: 30px;
     float: left; 
     width: 30%;
     margin-top: 120px;
@@ -36,7 +36,7 @@ table{
 }
 
 #winnerDisplay{
-    padding-top: 60px;
+    padding-top: 30px;
     float: left;
     width: 32%;
     margin-top: 120px;
@@ -45,12 +45,12 @@ table{
 }
 
 #winnerText{
-    margin-top: 60px;
+    margin-top: 30px;
     font-size: 60px;
 }
 
 h2{
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .pointer{
@@ -63,7 +63,7 @@ h2{
     background-color:#375a37;
 }
 
-#playNowButton{
+.playButtons{
     border-radius: 20px;
     background-color: #578f57;
     color: #98fb98;
@@ -71,4 +71,9 @@ h2{
     border:none;
     font-size: 20px;
     margin-top: 30px;
+    outline: none;
+}
+
+#rematchButton{
+    visibility: hidden;
 }
