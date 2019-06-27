@@ -60,5 +60,15 @@ h2{
 }
 
 .winCanvas{
-    background-color:red;
+    background-color:#375a37;
+}
+
+#playNowButton{
+    border-radius: 20px;
+    background-color: #578f57;
+    color: #98fb98;
+    padding: 20px;
+    border:none;
+    font-size: 20px;
+    margin-top: 30px;
 }

@@ -5,6 +5,10 @@ var playerMoves = [];           //both playes moves list
 var ctr;                        //number of succesful moves matches, 3 required for win
 var flag;                       //if a match is succesfull
 var winningMove = []
+var playNow = false;
+var p1;
+var p2;
+var intervalVar;
 
 
 var solution = [                //winning situations
@@ -18,15 +22,23 @@ var solution = [                //winning situations
     ['b3','b5','b7']
 ];
 
-var p1 = prompt("Enter Player 1 Name: ");
-var p2 = prompt("Enter Player 2 Name: ");
+function getNames(){
+    p1 = prompt("Enter Player 1 Name: ");
+    p2 = prompt("Enter Player 2 Name: ");
 
-document.getElementById("playerOne").innerHTML = p1;
-document.getElementById("playerTwo").innerHTML = p2;
+    document.getElementById("playerOne").innerHTML = p1;
+    document.getElementById("playerTwo").innerHTML = p2;
 
-document.getElementById("pointerOne").classList.add("pointer");
+    document.getElementById("pointerOne").classList.add("pointer");
+    
+    playNow = true;
+    intervalVar = setInterval(checker, 1000);
+    // document.getElementById("playNowButton").disabled = true;
+    document.getElementById("playNowButton").style.visibility = "hidden";
+}
 
-var intervalVar = setInterval(checker, 1000);              
+
+              
 
 function checker(){                                         //function run constantly to check winner, improved result display timing
     if(checkWinner(playerOneMoves)){
@@ -63,6 +75,10 @@ function draw(cnv){
 
     if(checker()){                                          //stops the game after winning
         return;
+    }
+
+    if(!playNow){
+        return
     }
 
     for (let i = 0; i < playerMoves.length; i++) {          //to avoid entry in same box more than once
