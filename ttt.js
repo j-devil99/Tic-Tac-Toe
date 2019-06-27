@@ -4,6 +4,8 @@ var playerTwoMoves = [];        //player two moves list
 var playerMoves = [];           //both playes moves list
 var ctr;                        //number of succesful moves matches, 3 required for win
 var flag;                       //if a match is succesfull
+var winningMove = []
+
 
 var solution = [                //winning situations
     ['b1','b2','b3'],
@@ -29,12 +31,18 @@ var intervalVar = setInterval(checker, 1000);
 function checker(){                                         //function run constantly to check winner, improved result display timing
     if(checkWinner(playerOneMoves)){
         // alert("Player One Wins");
+        winningMove.forEach(element => {
+            document.getElementById(element).classList.add("winCanvas");
+        });
         document.getElementById('winnerText').innerHTML = p1;          
         clearInterval(intervalVar);
         return true;
     }
     if(checkWinner(playerTwoMoves)){
         // alert("Player Two Wins");
+        winningMove.forEach(element => {
+            document.getElementById(element).classList.add("winCanvas");
+        });
         document.getElementById('winnerText').innerHTML = p2;  
         clearInterval(intervalVar);      
         return true;
@@ -106,6 +114,7 @@ function checkWinner(array){
                 ctr++;
             }         
             if(ctr === 3){
+                winningMove = solution[j];
                 // alert("Winner Winner Chicken Dinner!");
                 return true;
             }
